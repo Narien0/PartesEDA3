@@ -6,9 +6,9 @@ import java.util.HashMap;
 
 public class Actor {
 	//ATRIBUTOS
-	private String nombre;
+	/*private*/public String nombre;
 	private HashMap<String,Pelicula> listaPeliculas;
-	private ArrayList<Actor> actoresRel;
+	/*private*/public ArrayList<Actor> actoresRel;
 	
 	//METODOS
 	
@@ -19,12 +19,12 @@ public class Actor {
 	}
 	
 	public void getActoresRel() {
-		ArrayList<Peliculas> res = new ArrayList<Pelicula>();
+		ArrayList<Actor> res = new ArrayList<Actor>();
 		Pelicula aux;
-		for (String i: this.listaPeliculas) {
+		for (String i: this.listaPeliculas.keySet()) {
 			aux=(this.listaPeliculas.get(i));
-			for (String j : aux.getActores) {
-				res.add(j);
+			for (String j : aux.getActores().keySet()) {
+				res.add(ListaActores.getListaActores().getActor(j));
 			}
 		}
 	}
